@@ -8,7 +8,7 @@ import fitz  # PyMuPDF
 from model_loader import download_file
 
 # Step 1: Load the model using the provided loader
-model = load_model()
+model = download_file()
 
 if model is None:
     st.error("Failed to load the model. Please check your internet connection and try again.")
