@@ -7,7 +7,7 @@ import os
 import cv2
 import fitz  # PyMuPDF
 import torch 
-from model-loader import load_model
+from model_loader import load_model
 
 # Step 1: Load the model
 model = load_model()
