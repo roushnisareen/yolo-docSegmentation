@@ -25,7 +25,7 @@ def download_model():
             gdown.download(FILE_URL, FILE_PATH, quiet=False)
             print(f"Model downloaded successfully at: {FILE_PATH}")
         except Exception as e:
- print(f"Error downloading the model: {e}")
+            print(f"Error downloading the model: {e}")
             return None
     else:
         print(f"Model already exists at: {FILE_PATH}")
