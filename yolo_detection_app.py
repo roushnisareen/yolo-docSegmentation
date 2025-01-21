@@ -8,7 +8,12 @@ import fitz  # PyMuPDF
 from model_loader import download_file
 
 # Step 1: Load the model using the provided loader
-model = download_file()
+files_to_download = {
+    "yolov10x_best.pt": "https://github.com/moured/YOLOv10-Document-Layout-Analysis/releases/download/doclaynet_weights/yolov10x_best.pt",
+    "input_sample.png": "https://raw.githubusercontent.com/moured/YOLOv10-Document-Layout-Analysis/main/images/input_sample.png"
+}
+
+model = download_file("yolov10x_best.pt", "https://github.com/moured/YOLOv10-Document-Layout-Analysis/releases/download/doclaynet_weights/yolov10x_best.pt")
 
 if model is None:
     st.error("Failed to load the model. Please check your internet connection and try again.")
