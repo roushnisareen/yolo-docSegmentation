@@ -1,0 +1,10 @@
+streamlit
+ultralytics
+torch
+torchvision
+opencv-python-headless
+Pillow
+numpy
+gdown
+pdf2image
+PyMuPDF
