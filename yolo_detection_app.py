@@ -5,7 +5,7 @@ import tempfile
 import os
 import cv2
 import fitz  # PyMuPDF
-from model_loader import load_model
+from model_loader import download_file
 
 # Step 1: Load the model using the provided loader
 model = load_model()
