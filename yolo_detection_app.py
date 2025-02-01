@@ -2,15 +2,19 @@ import streamlit as st
 import cv2
 from PIL import Image
 import base64
-import numpy as np
-import os
-import gdown
-import tempfile
 from ultralytics import YOLO
+import tempfile
+import os
+import fitz
+from PIL import Image
 from pdf2image import convert_from_path
+import base64
+import numpy as np
+import gdown
 import io
-
-
+import pytesseract
+import groq  # Ensure Groq is installed correctly in your environment
+import supervisely as sv
 
 # Model Download and Loading
 MODEL_DIR = 'models'
@@ -53,16 +57,10 @@ def load_model():
             return None
     return None
 
-
 # Initialize Groq Client
+@st.cache_resource
 def initialize_groq_client(api_key):
-    try:
-        client = Groq(api_key=api_key)
-        return client
-    except Exception as e:
-        st.error(f"Error initializing Groq client: {e}")
-        return None
-
+    return groq.Groq(api_key=api_key)
 
 # OCR and Image Description Functions
 def get_image_description(client, image_path):
@@ -87,7 +85,6 @@ def get_image_description(client, image_path):
     except Exception as e:
         st.error(f"Error getting image description: {e}")
         return "Description not available."
-
 
 def perform_ocr(image, detections, client):
     section_annotations = {}
@@ -127,7 +124,6 @@ def perform_ocr(image, detections, client):
 
     return section_annotations
 
-
 def annotate_image(image, detections):
     bounding_box_annotator = sv.BoundingBoxAnnotator()
     label_annotator = sv.LabelAnnotator()
@@ -135,7 +131,6 @@ def annotate_image(image, detections):
     annotated_image = bounding_box_annotator.annotate(scene=image, detections=detections)
     annotated_image = label_annotator.annotate(scene=annotated_image, detections=detections)
     return annotated_image
-
 
 def process_image(model, image, client):
     results = model(source=image, conf=0.2, iou=0.8)[0]
@@ -145,7 +140,6 @@ def process_image(model, image, client):
     section_annotations = perform_ocr(image, detections, client)
 
     return annotated_image, section_annotations
-
 
 # Streamlit UI
 def main():
@@ -178,12 +172,7 @@ def main():
             st.stop()
 
         # Initialize Groq client with your API key
-        try:
-            groq_api_key = st.secrets["GROQ_API_KEY"]["api_key"]  # Ensure this is in your secrets.toml file
-        except KeyError:
-            st.error("GROQ API key not found. Please add it to the Streamlit secrets.")
-            st.stop()
-
+        groq_api_key = "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"  # Your actual API key
         client = initialize_groq_client(api_key=groq_api_key)
 
         if file_type in ["jpg", "jpeg", "png"]:
