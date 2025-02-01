@@ -12,7 +12,6 @@ import base64
 import numpy as np
 import gdown
 import io
-import pytesseract
 import groq  # Ensure Groq is installed correctly in your environment
 import supervisely as sv
 
