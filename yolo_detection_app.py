@@ -1,6 +1,5 @@
 import streamlit as st
 import cv2 
-from groq import Groq
 from PIL import Image
 import base64
 from ultralytics import YOLO  
@@ -15,6 +14,18 @@ import gdown
 import io
 import numpy as np
 import gdown
+import os
+from groq import Groq
+
+@st.cache_resource
+def initialize_groq_client(api_key=None):
+    if api_key is None:
+        api_key = os.getenv("GROQ_API_KEY")  # Fetch from environment variable if not passed
+    if not api_key:
+        st.error("Groq API key is missing. Please set it as an environment variable or pass it directly.")
+        return None
+    return Groq(api_key=api_key)
+
 
 
 
