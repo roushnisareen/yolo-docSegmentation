@@ -14,6 +14,8 @@ import gdown
 import io
 import numpy as np
 import gdown
+from groq import GroqClient
+
 
 # Model Download and Loading
 
