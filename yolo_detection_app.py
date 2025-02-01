@@ -15,7 +15,6 @@ import io
 import numpy as np
 import gdown
 import os
-from groq import Groq
 
 @st.cache_resource
 def initialize_groq_client(api_key=None):
