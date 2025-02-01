@@ -33,8 +33,6 @@ st.markdown("""
     <div style="text-align: center;">
         <h2 style="color: pink; font-size: 18px;">Roushni Sareen</h2>
         <h1 style="color: blue; font-size: 60px;">Document Segmentation using YOLOv10x</h1>
-        <h1 style="color: purple; font-size: 50px;">Separating documents into different sections and annotating them
-Performing OCR on textual data and Image analysis on Images</h1>
     </div>
 """, unsafe_allow_html=True)
 st.markdown("<p style='font-size: 30px;'>Upload the image/document here.</p>", unsafe_allow_html=True)
