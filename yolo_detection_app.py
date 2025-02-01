@@ -12,6 +12,7 @@ import base64
 import numpy as np
 import gdown
 import io
+import groq
 
 
 # Model Download and Loading
