@@ -6,14 +6,17 @@ from ultralytics import YOLO
 import tempfile
 import os
 import fitz
+from PIL import Image
 from pdf2image import convert_from_path
+import base64
 import numpy as np
 import gdown
 import io
-
+import numpy as np
+import gdown
+import os
 
 # Model Download and Loading
-
 MODEL_DIR = 'models'
 MODEL_FILENAME = 'yolov10x_best.pt'
 MODEL_PATH = os.path.join(MODEL_DIR, MODEL_FILENAME)
@@ -55,13 +58,11 @@ def load_model():
     return None
 
 # Initialize Groq Client
-
 @st.cache_resource
 def initialize_groq_client(api_key):
     return Groq(api_key=api_key)
 
 # OCR and Image Description Functions
-
 def get_image_description(client, image_path):
     with open(image_path, 'rb') as image_file:
         image_data = base64.b64encode(image_file.read()).decode('utf-8')
@@ -141,7 +142,6 @@ def process_image(model, image, client):
     return annotated_image, section_annotations
 
 # Streamlit UI
-
 def main():
     st.set_page_config(page_title="Document Segmentation using YOLOv10x", layout="wide")
     st.markdown("""
@@ -171,9 +171,9 @@ def main():
             st.error("Failed to load the YOLOv10x model. Please try again later.")
             st.stop()
 
-        # Initialize Groq client with your API key from secrets.toml
+        # Initialize Groq client with your API key
         try:
-            groq_api_key = st.secrets["GROQ_API_KEY"]  # Ensure this is in your secrets.toml file
+            groq_api_key = st.secrets["GROQ_API_KEY"]["api_key"]  # Ensure this matches your secrets.toml
         except KeyError:
             st.error("GROQ API key not found. Please add it to the Streamlit secrets.")
             st.stop()
