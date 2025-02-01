@@ -12,9 +12,8 @@ import gdown
 
 
 
-# -------------------------------
 # Model Download and Loading
-# -------------------------------
+
 
 MODEL_DIR = 'models'
 MODEL_FILENAME = 'yolov10x_best.pt'
@@ -56,17 +55,14 @@ def load_model():
             return None
     return None
 
-# -------------------------------
 # Initialize Groq Client
-# -------------------------------
 
 @st.cache_resource
 def initialize_groq_client(api_key):
     return Groq(api_key=api_key)
 
-# -------------------------------
+
 # OCR and Image Description Functions
-# -------------------------------
 
 def get_image_description(client, image_path):
     with open(image_path, 'rb') as image_file:
@@ -146,9 +142,7 @@ def process_image(model, image, client):
 
     return annotated_image, section_annotations
 
-# -------------------------------
 # Streamlit UI
-# -------------------------------
 
 def main():
     st.set_page_config(page_title="Document Segmentation using YOLOv10x", layout="wide")
@@ -156,11 +150,12 @@ def main():
         <style>
             body { color: #2a0141; }
             .title { color: blue; font-size: 50px; text-align: center; }
-            .subtitle { color: blue; font-size: 40px; text-align: center; }
+            .subtitle { color: pink; font-size: 20px; text-align: center; }
         </style>
     """, unsafe_allow_html=True)
 
     st.markdown("""
+        <div class="subtitle">ROUSHNI SAREEN</div>
         <div class="title">Document Segmentation using YOLOv10x</div>
         <div class="subtitle">Separating documents into different sections and annotating them</div>
     """, unsafe_allow_html=True)
