@@ -1,7 +1,6 @@
 import streamlit as st
 import cv2
 from PIL import Image
-from groq import Groq 
 import base64
 import numpy as np
 import os
