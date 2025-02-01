@@ -6,24 +6,14 @@ from ultralytics import YOLO
 import tempfile
 import os
 import fitz
-from PIL import Image
 from pdf2image import convert_from_path
-import base64
 import numpy as np
 import gdown
 import io
-import numpy as np
-import gdown
-import os
-
-
-
-
-
+import pytesseract
+import supervisor
 
 # Model Download and Loading
-
-
 MODEL_DIR = 'models'
 MODEL_FILENAME = 'yolov10x_best.pt'
 MODEL_PATH = os.path.join(MODEL_DIR, MODEL_FILENAME)
@@ -64,12 +54,15 @@ def load_model():
             return None
     return None
 
-# Initialize Groq Client
-
-@st.cache_resource
+# Initialize Groq Client (No caching required for this function)
 def initialize_groq_client(api_key):
-    return Groq(api_key=api_key)
-
+    try:
+        client = Groq(api_key=api_key)  # Assuming the Groq package has this initialization method
+        st.success("Groq client initialized successfully.")
+        return client
+    except Exception as e:
+        st.error(f"Error initializing Groq client: {e}")
+        return None
 
 # OCR and Image Description Functions
 
@@ -183,9 +176,9 @@ def main():
             st.stop()
 
         # Initialize Groq client with your API key
-        try:
-            groq_api_key = "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"
-        except KeyError:
+        groq_api_key = st.secrets["GROQ_API_KEY"]  # Ensure this is in your secrets.toml file
+
+        if not groq_api_key:
             st.error("GROQ API key not found. Please add it to the Streamlit secrets.")
             st.stop()
 
