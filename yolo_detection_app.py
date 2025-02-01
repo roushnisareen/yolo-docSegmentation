@@ -10,7 +10,6 @@ from pdf2image import convert_from_path
 import numpy as np
 import gdown
 import io
-import supervisor
 
 # Model Download and Loading
 MODEL_DIR = 'models'
