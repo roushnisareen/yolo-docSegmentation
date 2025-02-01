@@ -10,7 +10,6 @@ from pdf2image import convert_from_path
 import numpy as np
 import gdown
 import io
-import pytesseract
 import supervisor
 
 # Model Download and Loading
