@@ -1,6 +1,7 @@
 import streamlit as st
 import cv2  # Using opencv-python-headless
 from PIL import Image
+from ultralytics import YOLO  
 import tempfile
 import os
 import fitz
@@ -149,7 +150,7 @@ def main():
     st.markdown("""
         <style>
             body { color: #2a0141; }
-            .title { color: blue; font-size: 50px; text-align: center; }
+            .title { color: blue; font-size: 30px; text-align: center; }
             .subtitle { color: pink; font-size: 20px; text-align: center; }
         </style>
     """, unsafe_allow_html=True)
