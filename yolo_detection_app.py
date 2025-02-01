@@ -10,8 +10,12 @@ from pdf2image import convert_from_path
 import numpy as np
 import gdown
 import io
+import pytesseract
+import supervisely as sv  # Assuming you're using supervisely for annotations
+
 
 # Model Download and Loading
+
 MODEL_DIR = 'models'
 MODEL_FILENAME = 'yolov10x_best.pt'
 MODEL_PATH = os.path.join(MODEL_DIR, MODEL_FILENAME)
@@ -52,15 +56,11 @@ def load_model():
             return None
     return None
 
-# Initialize Groq Client (No caching required for this function)
+# Initialize Groq Client
+
+@st.cache_resource
 def initialize_groq_client(api_key):
-    try:
-        client = Groq(api_key=api_key)  # Assuming the Groq package has this initialization method
-        st.success("Groq client initialized successfully.")
-        return client
-    except Exception as e:
-        st.error(f"Error initializing Groq client: {e}")
-        return None
+    return Groq(api_key=api_key)
 
 # OCR and Image Description Functions
 
@@ -173,10 +173,10 @@ def main():
             st.error("Failed to load the YOLOv10x model. Please try again later.")
             st.stop()
 
-        # Initialize Groq client with your API key
-        groq_api_key = st.secrets["GROQ_API_KEY"]  # Ensure this is in your secrets.toml file
-
-        if not groq_api_key:
+        # Initialize Groq client with your API key from secrets.toml
+        try:
+            groq_api_key = st.secrets["GROQ_API_KEY"]  # Ensure this is in your secrets.toml file
+        except KeyError:
             st.error("GROQ API key not found. Please add it to the Streamlit secrets.")
             st.stop()
 
