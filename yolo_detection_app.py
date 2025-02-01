@@ -7,7 +7,6 @@ import fitz
 from PIL import Image
 from pdf2image import convert_from_path
 import base64
-from pytesseract import Output
 import numpy as np
 import gdown
 
