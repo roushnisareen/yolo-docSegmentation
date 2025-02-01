@@ -10,8 +10,6 @@ from pdf2image import convert_from_path
 import numpy as np
 import gdown
 import io
-import pytesseract
-import supervisely as sv  # Assuming you're using supervisely for annotations
 
 
 # Model Download and Loading
