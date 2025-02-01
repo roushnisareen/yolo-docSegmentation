@@ -11,7 +11,7 @@ from pdf2image import convert_from_path
 import base64
 import numpy as np
 import gdown
-
+import io
 
 
 # Model Download and Loading
