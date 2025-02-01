@@ -1,6 +1,7 @@
 import streamlit as st
 import cv2  # Using opencv-python-headless
 from PIL import Image
+import base64
 from ultralytics import YOLO  
 import tempfile
 import os
