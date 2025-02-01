@@ -12,6 +12,10 @@ import base64
 import numpy as np
 import gdown
 import io
+from groq import Groq
+from pytesseract import Output
+import numpy as np
+import gdown
 
 
 # Model Download and Loading
