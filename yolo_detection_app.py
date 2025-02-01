@@ -1,5 +1,6 @@
 import streamlit as st
 import cv2 
+from groq import Groq
 from PIL import Image
 import base64
 from ultralytics import YOLO  
@@ -14,7 +15,7 @@ import gdown
 import io
 import numpy as np
 import gdown
-from groq_package_name import Groq  # Replace with the actual package name
+
 
 
 
