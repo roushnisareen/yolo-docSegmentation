@@ -15,7 +15,6 @@ import io
 import numpy as np
 import gdown
 
-
 # Model Download and Loading
 
 
