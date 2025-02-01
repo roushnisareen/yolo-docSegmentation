@@ -9,5 +9,4 @@ gdown
 pdf2image
 PyMuPDF
 groq
-pytesseract
-supervisely
+
