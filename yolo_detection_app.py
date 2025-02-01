@@ -25,7 +25,6 @@ def initialize_groq_client(api_key=None):
         return None
     return Groq(api_key=api_key)
 
-[default]
 GROQ_API_KEY = "your_api_key_here"
 
 
