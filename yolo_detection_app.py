@@ -1,6 +1,5 @@
 import streamlit as st
 import cv2  # Using opencv-python-headless
-import pytesseract
 from PIL import Image
 from pdf2image import convert_from_path
 import tempfile
