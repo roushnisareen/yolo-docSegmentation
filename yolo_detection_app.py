@@ -6,7 +6,6 @@ import tempfile
 import os
 import base64
 from ultralytics import YOLO  
-import supervision as sv
 from groq import Groq
 from pytesseract import Output
 import numpy as np
