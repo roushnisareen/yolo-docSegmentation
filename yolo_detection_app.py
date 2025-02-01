@@ -1,13 +1,11 @@
 import streamlit as st
 import cv2  # Using opencv-python-headless
-import pytesseract
 from PIL import Image
 from pdf2image import convert_from_path
 import tempfile
 import os
 import base64
 from ultralytics import YOLO  # Correct import after installing yolov10
-import supervision as sv
 from groq import Groq
 from pytesseract import Output
 import numpy as np
