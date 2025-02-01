@@ -12,8 +12,7 @@ import base64
 import numpy as np
 import gdown
 import io
-import groq  # Ensure Groq is installed correctly in your environment
-import supervisely as sv
+
 
 # Model Download and Loading
 MODEL_DIR = 'models'
