@@ -1,5 +1,6 @@
 import os
 import gdown
+from groq import Groq
 from ultralytics import YOLO
 
 # Define the path where you want the model to be saved relative to your project directory
