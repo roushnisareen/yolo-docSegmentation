@@ -1,5 +1,5 @@
 import streamlit as st
-import cv2 
+import cv2
 from PIL import Image
 import base64
 from ultralytics import YOLO  
@@ -57,8 +57,7 @@ def load_model():
             return None
     return None
 
-# Initialize Groq Client
-@st.cache_resource
+# Initialize Groq Client (without caching)
 def initialize_groq_client(api_key):
     return Groq(api_key=api_key)
 
