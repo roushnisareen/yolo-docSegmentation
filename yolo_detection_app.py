@@ -13,7 +13,6 @@ import numpy as np
 import gdown
 import io
 import groq
-import pytesseract
 import supervisely as sv
 
 
