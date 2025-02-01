@@ -7,7 +7,6 @@ import fitz
 from PIL import Image
 from pdf2image import convert_from_path
 import base64
-import supervision as sv
 from groq import Groq
 from pytesseract import Output
 import numpy as np
