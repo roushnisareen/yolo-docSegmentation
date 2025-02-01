@@ -9,7 +9,7 @@ import tempfile
 from ultralytics import YOLO
 from pdf2image import convert_from_path
 import io
-from groq import Groq  # Import the Groq client
+
 
 
 # Model Download and Loading
