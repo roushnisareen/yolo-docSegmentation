@@ -13,7 +13,7 @@ import numpy as np
 import gdown
 import io
 import groq
-import supervisely as sv
+
 
 
 
