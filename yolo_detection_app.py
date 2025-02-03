@@ -13,6 +13,30 @@ import numpy as np
 import gdown
 import io
 import groq
+import supervisely as sv  # Ensure this is at the top of your script
+
+def process_image(model, image_np, client):
+    # Run inference using the YOLO model
+    results = model(image_np)
+    
+    # Ensure results is compatible with supervisely Detections
+    if not results:
+        st.error("No detection results returned.")
+        return image_np, []
+
+    # Convert detections to Supervisely format
+    try:
+        detections = sv.Detections.from_ultralytics(results)
+        st.write("Successfully processed detections with Supervisely.")
+    except Exception as e:
+        st.error(f"Error processing detections with Supervisely: {e}")
+        return image_np, []
+
+    # Further processing of detections
+    annotated_image = image_np  # Add any drawing logic here if needed
+    annotations = detections.to_json()
+
+    return annotated_image, annotations
 
 
 
