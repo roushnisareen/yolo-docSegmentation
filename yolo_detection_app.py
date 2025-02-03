@@ -213,7 +213,7 @@ def main():
             try:
                 pages = convert_from_path(temp_pdf_path, dpi=300)
                 for i, page in enumerate(pages, start=1):
-                    st.image(page, caption=f"Page {i}", use_column_width=True)
+                    st.image(page, caption=f"Page {i}", use_container_width=True)
                     page_np = cv2.cvtColor(np.array(page), cv2.COLOR_RGB2BGR)
 
                     with st.spinner(f"Processing Page {i}..."):
