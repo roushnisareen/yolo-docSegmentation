@@ -1,4 +1,5 @@
 streamlit
+supervisely
 ultralytics
 torch
 torchvision
@@ -9,7 +10,6 @@ gdown
 pdf2image
 PyMuPDF
 groq
-
 
 
 
