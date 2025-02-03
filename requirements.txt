@@ -10,6 +10,8 @@ gdown
 pdf2image
 PyMuPDF
 groq
+protobuf==3.20.0
+
 
 
 
