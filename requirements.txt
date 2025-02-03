@@ -10,7 +10,6 @@ pdf2image
 PyMuPDF
 groq
 supervisely
-supervisely
 pytesseract
 
 
