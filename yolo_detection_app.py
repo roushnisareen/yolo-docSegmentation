@@ -1,5 +1,4 @@
 import streamlit as st
-import supervisely as sv 
 import cv2
 from PIL import Image
 import base64
@@ -14,6 +13,7 @@ import numpy as np
 import gdown
 import io
 import groq
+import supervisely as sv 
 
 
 
