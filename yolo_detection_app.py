@@ -1,4 +1,5 @@
 import streamlit as st
+import supervisely as sv 
 import cv2
 from PIL import Image
 import base64
@@ -13,7 +14,6 @@ import numpy as np
 import gdown
 import io
 import groq
-import supervisely as sv  # Ensure this is at the top of your script
 
 def process_image(model, image_np, client):
     # Run inference using the YOLO model
