@@ -1,7 +1,6 @@
 import streamlit as st
 import cv2
 from PIL import Image
-import supervisely as sv
 import base64
 from ultralytics import YOLO
 import tempfile
