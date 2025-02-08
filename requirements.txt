@@ -9,6 +9,7 @@ numpy
 gdown
 pdf2image
 PyMuPDF
+pytesseract
 groq
 protobuf==3.20.0
 
