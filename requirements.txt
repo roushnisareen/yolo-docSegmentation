@@ -1,22 +1,26 @@
+# Core packages
 streamlit
 supervisely
 ultralytics
+
+# Machine Learning & Computer Vision
 torch
 torchvision
 opencv-python-headless
-Pillow
 numpy
-gdown
-pdf2image
-supervision
-PyMuPDF
+Pillow
+
+# Document Processing & OCR
 pytesseract
+pdf2image
+PyMuPDF  # Alternative: fitz (alias for PyMuPDF)
+
+# Groq API Client
 groq
-protobuf==3.20.0
 
+# Model & File Management
+gdown
+supervision
 
-
-
-
-
-
+# Compatibility Fix for Protocol Buffers
+protobuf==3.20.0  # Required for compatibility with TensorFlow and PyTorch
