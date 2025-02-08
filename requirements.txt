@@ -8,6 +8,7 @@ Pillow
 numpy
 gdown
 pdf2image
+supervision
 PyMuPDF
 pytesseract
 groq
