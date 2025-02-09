@@ -109,7 +109,7 @@ def process_image(model, image, client):
 
 def main():
     st.set_page_config(page_title="YOLOv10x Document Segmentation", layout="wide")
-    st.title("📄 Document Segmentation with YOLOv10x")
+    st.markdown("<h1 style='color: blue;'>📄 Document Segmentation with YOLOv10x</h1>", unsafe_allow_html=True)
 
     uploaded_file = st.file_uploader("Upload an image or PDF", type=["jpg", "jpeg", "png", "pdf"])
 
