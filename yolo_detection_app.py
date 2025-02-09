@@ -40,7 +40,7 @@ def load_model():
 @st.cache_resource
 def initialize_groq_client():
     """Initialize Groq Client securely."""
-    api_key = os.getenv("GROQ_API_KEY")
+    api_key = "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"
     if not api_key:
         st.error("Groq API Key not set!")
         return None
